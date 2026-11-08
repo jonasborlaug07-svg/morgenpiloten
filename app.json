@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "Morgenpiloten",
+    "slug": "morgenpiloten",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "no.morgenpiloten.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "Morgenpiloten leser timeplanen din for å flytte alarmen når første time er avlyst."
+        }
+      ],
+      "expo-notifications",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Morgenpiloten bruker posisjonen én gang for å finne hjemmeadressen din."
+        }
+      ],
+      "expo-background-task"
+    ]
+  }
+}
