@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar";
 
 import { distanceKm, fetchWeather, reversePlace, type Place } from "./src/api";
 import { readDay, type CalendarState } from "./src/calendar";
-import { ensurePermission, ringNow, scheduleAlarms } from "./src/alarm";
+import { ensurePermission, ringNow, scheduleAlarms, usesRealAlarm } from "./src/alarm";
 import { registerBackgroundRefresh } from "./src/background";
 import { planWeek, whyText, type PlannedMorning } from "./src/week";
 import { syncTrip } from "./src/server";
@@ -249,6 +249,9 @@ function Main({ prefs, setPrefs }: { prefs: Prefs; setPrefs: React.Dispatch<Reac
             </Text>
           )}
           {!notifOk && <Text style={[s.small, { color: C.bad }]}>Varsler er slått av. Slå dem på i Innstillinger, ellers kan ikke appen vekke deg.</Text>}
+          {notifOk && decision.wake && (
+            <Text style={s.small}>{usesRealAlarm() ? "Ringer som en vanlig vekkerklokke, også på lydløs." : "Ringer som varsel. Sjekk at lyden er på."}</Text>
+          )}
         </View>
 
         {askFeedback && (
